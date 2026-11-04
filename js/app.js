@@ -36,6 +36,31 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Gestion de la modale Mentions légales & Confidentialité
+    const legalModal = document.getElementById('legal-modal');
+    const btnOpenLegal = document.getElementById('btn-open-legal');
+    if (legalModal && btnOpenLegal) {
+        btnOpenLegal.addEventListener('click', () => {
+            legalModal.showModal();
+        });
+
+        // Fallback light-dismiss pour les navigateurs ne supportant pas encore l'attribut closedby="any"
+        if (!('closedBy' in HTMLDialogElement.prototype)) {
+            legalModal.addEventListener('click', (event) => {
+                if (event.target !== legalModal) return;
+                const rect = legalModal.getBoundingClientRect();
+                const isDialogContent = (
+                    rect.top <= event.clientY &&
+                    event.clientY <= rect.top + rect.height &&
+                    rect.left <= event.clientX &&
+                    event.clientX <= rect.left + rect.width
+                );
+                if (isDialogContent) return;
+                legalModal.close();
+            });
+        }
+    }
+
     // Démarrage
     handleTransparencyChange();
     scheduleUpdate();
