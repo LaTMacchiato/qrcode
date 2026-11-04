@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Générateur QR Code Professionnel | 100% Sécurisé</title>
+    <title>QR.code — Générateur QR Code Professionnel | 100% Local</title>
     <meta name="description" content="Créez des QR Codes personnalisés et gratuits pour votre entreprise. Outil sans serveur, vos données restent privées et ne quittent pas votre navigateur.">
     
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self';">
@@ -15,141 +15,290 @@
 </head>
 <body>
 
-    <header class="site-header">
-        <div class="header-content">
-            <div class="fake-logo">QR</div>
-            <div class="header-title">
-                <h1>Générateur de QR Code</h1>
+    <!-- NAVBAR ESPRIT PENL.IMG × EDF -->
+    <header class="site-navbar">
+        <div class="navbar-inner">
+            <div class="brand-group">
+                <div class="brand-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="7" height="7" rx="1"></rect>
+                        <rect x="14" y="3" width="7" height="7" rx="1"></rect>
+                        <rect x="3" y="14" width="7" height="7" rx="1"></rect>
+                        <path d="M14 14h3v3h-3z"></path>
+                        <path d="M18 18h3v3h-3z"></path>
+                        <path d="M14 19h2"></path>
+                        <path d="M19 14v2"></path>
+                    </svg>
+                    <span class="brand-dot"></span>
+                </div>
+                <div class="brand-text">
+                    <div class="brand-title-row">
+                        <span class="brand-name">QR<span class="brand-accent">.</span>code</span>
+                    </div>
+                </div>
             </div>
+
+            <button type="button" id="btn-top-legal" class="local-pill-btn" title="Voir les mentions légales et garanties de confidentialité">
+                <span class="status-dot-pulse"></span>
+                <span>100% Local • Zéro Serveur</span>
+            </button>
         </div>
     </header>
 
-    <div class="main-container">
-        <div class="config-panel">
-            
-            <div class="config-section">
-                <h3>1. Lien de destination</h3>
-                <label for="input-url">URL de la page Web</label>
-                <input type="url" id="input-url" placeholder="Ex: https://www.votre-site.fr" value="https://www.edf.fr">
-            </div>
-
-            <div class="config-section">
-                <h3>2. Apparence visuelle</h3>
-                
-                <label for="color-dots">Couleur du QR Code</label>
-                <div class="color-picker-group">
-                    <input type="color" id="color-dots" value="#001A70">
-                    <div class="palette">
-                        <div class="color-dot" style="background:#001A70" data-color="#001A70" title="Bleu Nuit"></div>
-                        <div class="color-dot" style="background:#005AFF" data-color="#005AFF" title="Bleu Action"></div>
-                        <div class="color-dot" style="background:#FF5A00" data-color="#FF5A00" title="Orange"></div>
-                        <div class="color-dot" style="background:#88D910" data-color="#88D910" title="Vert Éco"></div>
-                        <div class="color-dot" style="background:#ffffff" data-color="#FFFFFF" title="Blanc"></div>
-                       <div class="color-dot" style="background:#000000" data-color="#000000" title="Noir"></div>
-                    </div>
-                </div>
-
-                <label for="color-bg">Couleur de fond</label>
-                <div class="color-picker-group">
-                    <input type="color" id="color-bg" value="#ffffff" disabled>
-                    <label class="checkbox-group" style="margin:0; margin-left:5px;" for="bg-transparent">
-                        <input type="checkbox" id="bg-transparent" checked> Fond transparent
-                    </label>
-                </div>
-
-                <div class="row">
-                    <div class="col">
-                        <label for="style-dots">Forme des motifs</label>
-                        <select id="style-dots">
-                            <option value="square" selected>Classique (Carré)</option>
-                            <option value="rounded">Arrondi</option>
-                        </select>
-                    </div>
-                    <div class="col">
-                        <label for="style-corners">Bords (Repères)</label>
-                        <select id="style-corners">
-                            <option value="square" selected>Angles droits</option>
-                            <option value="extra-rounded">Angles arrondis</option>
-                            <option value="dot">Circulaire</option>
-                        </select>
-                    </div>
-                </div>
-
-                <label for="error-correction">Niveau de correction (Densité)</label>
-                <select id="error-correction">
-                    <option value="L">Bas (Code allégé)</option>
-                    <option value="M" selected>Standard (Recommandé)</option>
-                    <option value="Q">Élevé</option>
-                    <option value="H">Maximum (Requis si ajout de logo)</option>
-                </select>
-            </div>
-
-            <div class="config-section">
-                <h3>3. Personnalisation avancée</h3>
-                
-                <label for="logo-input">Ajouter une icône ou un logo au centre</label>
-                <input type="file" id="logo-input" accept="image/png, image/jpeg, image/svg+xml">
-                <button id="btn-clear-logo" class="btn-text" style="margin-bottom: 20px;">Retirer l'image</button>
-
-                <label for="text-bottom">Texte descriptif (sous le QR Code)</label>
-                <input type="text" id="text-bottom" placeholder="Laisser vide pour afficher le nom de domaine">
-                
-                <div class="row">
-                    <div class="col">
-                        <label for="text-font">Typographie</label>
-                        <select id="text-font">
-                            <option value="Arial, sans-serif" selected>Arial (Standard)</option>
-                            <option value="'Helvetica Neue', sans-serif">Helvetica</option>
-                            <option value="Georgia, serif">Georgia</option>
-                        </select>
-                    </div>
-                    <div class="col">
-                        <label for="text-size">Taille (<span id="text-size-val">22</span>px)</label>
-                        <input type="range" id="text-size" min="14" max="40" value="22">
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="preview-panel">
-            <h3 style="margin-top:0; margin-bottom: 25px; text-align: center;">Aperçu du résultat</h3>
-            
-            <div id="raw-qr-container"></div>
-            <div id="final-canvas-container" class="checkerboard">
-                <canvas id="final-canvas"></canvas>
-            </div>
-
-            <div class="export-controls">
-                <label for="export-size">Format de téléchargement</label>
-                <select id="export-size" style="margin-bottom: 25px;">
-                    <option value="500" selected>Qualité Web (500x500 px)</option>
-                    <option value="1000">Haute Définition (1000x1000 px)</option>
-                    <option value="2000">Format Impression (2000x2000 px)</option>
-                </select>
-                
-                <button id="btn-dl-png" class="btn btn-primary">Télécharger l'image (PNG)</button>
-                <button id="btn-dl-svg" class="btn btn-secondary">Télécharger le vecteur (SVG)</button>
+    <main class="page-shell">
+        <!-- EN-TÊTE -->
+        <div class="hero-bar">
+            <div>
+                <h1 class="hero-title">Générateur de QR Code Professionnel</h1>
             </div>
         </div>
-    </div>
 
+        <!-- GRILLE PRINCIPALE -->
+        <div class="workspace-grid">
+
+            <!-- COLONNE GAUCHE : CONFIGURATION -->
+            <div class="config-column">
+
+                <!-- SECTION 01 : DESTINATION -->
+                <section class="tactile-card">
+                    <div class="section-divider">
+                        <span class="section-num">01 / Destination</span>
+                        <div class="section-line"></div>
+                    </div>
+
+                    <label for="input-url" class="field-label">URL de la page Web ou texte cible</label>
+                    <div class="url-input-wrap">
+                        <span class="url-icon" aria-hidden="true">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                        </span>
+                        <input type="url" id="input-url" placeholder="Ex: https://www.votre-site.fr" value="https://www.edf.fr" autocomplete="off" spellcheck="false">
+                        <span id="domain-pill" class="domain-pill">edf.fr</span>
+                    </div>
+                </section>
+
+                <!-- SECTION 02 : APPARENCE VISUELLE & PALETTE -->
+                <section class="tactile-card">
+                    <div class="section-divider">
+                        <span class="section-num">02 / Apparence &amp; Palette</span>
+                        <div class="section-line"></div>
+                    </div>
+
+                    <!-- Grille Couleurs (Motifs + Fond) -->
+                    <div class="color-cards-grid">
+                        <!-- Couleur du QR Code -->
+                        <div class="sub-box">
+                            <div class="sub-box-header">
+                                <label for="color-dots" class="field-label-inline">Couleur des motifs</label>
+                                <span id="hex-dots-label" class="mono-badge">#001A70</span>
+                            </div>
+                            <div class="color-picker-row">
+                                <input type="color" id="color-dots" value="#001A70" title="Choisir une couleur personnalisée">
+                                <div class="palette" role="group" aria-label="Nuancier rapide">
+                                    <button type="button" class="color-dot active" style="background:#001A70" data-color="#001A70" title="Bleu Nuit (#001A70)" aria-label="Bleu Nuit"></button>
+                                    <button type="button" class="color-dot" style="background:#005AFF" data-color="#005AFF" title="Bleu Action (#005AFF)" aria-label="Bleu Action"></button>
+                                    <button type="button" class="color-dot" style="background:#FF5A00" data-color="#FF5A00" title="Orange Énergie (#FF5A00)" aria-label="Orange"></button>
+                                    <button type="button" class="color-dot" style="background:#88D910" data-color="#88D910" title="Vert Éco (#88D910)" aria-label="Vert Éco"></button>
+                                    <button type="button" class="color-dot" style="background:#000000" data-color="#000000" title="Noir (#000000)" aria-label="Noir"></button>
+                                    <button type="button" class="color-dot color-dot-light" style="background:#FFFFFF" data-color="#FFFFFF" title="Blanc (#FFFFFF)" aria-label="Blanc"></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Couleur de fond -->
+                        <div class="sub-box">
+                            <div class="sub-box-header">
+                                <label for="color-bg" class="field-label-inline">Arrière-plan</label>
+                                <span id="bg-status-badge" class="mono-badge badge-emerald">Alpha transparent</span>
+                            </div>
+                            <div class="bg-controls-row">
+                                <input type="color" id="color-bg" value="#FFFFFF" disabled title="Choisir la couleur de fond">
+                                <label class="checkbox-pill" for="bg-transparent">
+                                    <input type="checkbox" id="bg-transparent" checked>
+                                    <span>Fond transparent</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Forme des motifs & Bords -->
+                    <div class="two-col-grid">
+                        <div>
+                            <label class="field-label" id="label-style-dots">Forme des motifs</label>
+                            <input type="hidden" id="style-dots" value="square">
+                            <div class="segmented-group" role="group" aria-labelledby="label-style-dots">
+                                <button type="button" class="seg-btn active" data-target="style-dots" data-value="square">Carré</button>
+                                <button type="button" class="seg-btn" data-target="style-dots" data-value="rounded">Arrondi</button>
+                                <button type="button" class="seg-btn" data-target="style-dots" data-value="dots">Points</button>
+                                <button type="button" class="seg-btn" data-target="style-dots" data-value="classy-rounded">Élégant</button>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="field-label" id="label-style-corners">Bords (Repères d'angle)</label>
+                            <input type="hidden" id="style-corners" value="square">
+                            <div class="segmented-group" role="group" aria-labelledby="label-style-corners">
+                                <button type="button" class="seg-btn active" data-target="style-corners" data-value="square">Angles droits</button>
+                                <button type="button" class="seg-btn" data-target="style-corners" data-value="extra-rounded">Arrondis</button>
+                                <button type="button" class="seg-btn" data-target="style-corners" data-value="dot">Circulaire</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Niveau de correction (Densité) -->
+                    <div class="ecc-block">
+                        <div class="sub-box-header">
+                            <label class="field-label-inline" id="label-ecc">Niveau de correction d'erreur (Densité)</label>
+                            <span id="ecc-hint" class="section-hint">Auto-H si logo actif</span>
+                        </div>
+                        <input type="hidden" id="error-correction" value="M">
+                        <div class="ecc-grid" role="group" aria-labelledby="label-ecc">
+                            <button type="button" class="ecc-card" data-value="L">
+                                <strong>L (7%)</strong>
+                                <span>Code allégé</span>
+                            </button>
+                            <button type="button" class="ecc-card active" data-value="M">
+                                <strong>M (15%)</strong>
+                                <span>Standard</span>
+                            </button>
+                            <button type="button" class="ecc-card" data-value="Q">
+                                <strong>Q (25%)</strong>
+                                <span>Élevé</span>
+                            </button>
+                            <button type="button" class="ecc-card" data-value="H">
+                                <strong>H (30%)</strong>
+                                <span>Max / Logo</span>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SECTION 03 : PERSONNALISATION AVANCÉE -->
+                <section class="tactile-card">
+                    <div class="section-divider">
+                        <span class="section-num">03 / Logo &amp; Légende</span>
+                        <div class="section-line"></div>
+                    </div>
+
+                    <!-- Zone d'import du logo -->
+                    <div class="logo-upload-area" id="logo-dropzone">
+                        <input type="file" id="logo-input" accept="image/png, image/jpeg, image/svg+xml" class="sr-file-input">
+                        <label for="logo-input" class="logo-dropzone-label">
+                            <div class="logo-drop-icon" aria-hidden="true">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                            </div>
+                            <div class="logo-drop-text">
+                                <strong id="logo-status-title">Ajouter une icône ou un logo au centre</strong>
+                                <span id="logo-status-sub">Glisser-déposer ou cliquer • PNG, JPEG, SVG</span>
+                            </div>
+                            <span class="logo-browse-btn">Parcourir…</span>
+                        </label>
+                        <button type="button" id="btn-clear-logo" class="btn-remove-logo" hidden>Retirer le logo</button>
+                    </div>
+
+                    <!-- Légende sous le QR Code -->
+                    <div class="caption-block">
+                        <label for="text-bottom" class="field-label">Texte descriptif (sous le QR Code)</label>
+                        <input type="text" id="text-bottom" placeholder="Laisser vide pour afficher automatiquement le nom de domaine">
+
+                        <div class="two-col-grid">
+                            <div>
+                                <label for="text-font" class="field-label">Typographie</label>
+                                <select id="text-font">
+                                    <option value="Arial, sans-serif" selected>Arial (Sans-serif)</option>
+                                    <option value="'Helvetica Neue', sans-serif">Helvetica Neue</option>
+                                    <option value="Georgia, serif">Georgia (Serif)</option>
+                                    <option value="ui-monospace, SFMono-Regular, Menlo, monospace">Monospace Technique</option>
+                                </select>
+                            </div>
+                            <div>
+                                <div class="sub-box-header">
+                                    <label for="text-size" class="field-label-inline">Taille de police</label>
+                                    <span class="mono-badge"><span id="text-size-val">22</span> px</span>
+                                </div>
+                                <input type="range" id="text-size" min="14" max="40" value="22">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- COLONNE DROITE : APERÇU & EXPORT -->
+            <aside class="preview-column">
+                <div class="preview-card">
+                    <div class="preview-card-header">
+                        <span class="preview-header-title">Aperçu du résultat</span>
+                        <span id="contrast-badge" class="contrast-badge contrast-ok" title="Ratio de contraste WCAG entre les motifs et le fond">
+                            ✓ Contraste 14.8:1
+                        </span>
+                    </div>
+
+                    <div id="raw-qr-container" aria-hidden="true"></div>
+
+                    <div id="final-canvas-container" class="checkerboard">
+                        <div class="canvas-stage">
+                            <canvas id="final-canvas"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="export-controls">
+                        <div class="export-size-row">
+                            <label class="field-label-inline" id="label-export-size">Format de sortie</label>
+                            <input type="hidden" id="export-size" value="500">
+                            <div class="segmented-group segmented-compact" role="group" aria-labelledby="label-export-size">
+                                <button type="button" class="seg-btn active" data-target="export-size" data-value="500" title="Qualité Web (500x500 px)">500 px</button>
+                                <button type="button" class="seg-btn" data-target="export-size" data-value="1000" title="Haute Définition (1000x1000 px)">1000 px</button>
+                                <button type="button" class="seg-btn" data-target="export-size" data-value="2000" title="Format Impression (2000x2000 px)">2000 px</button>
+                            </div>
+                        </div>
+
+                        <button type="button" id="btn-dl-png" class="btn btn-primary">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                            <span>Télécharger l'image (PNG)</span>
+                        </button>
+
+                        <div class="secondary-actions-grid">
+                            <button type="button" id="btn-dl-svg" class="btn btn-navy">
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                                <span>Vecteur (SVG)</span>
+                            </button>
+                            <button type="button" id="btn-copy-png" class="btn btn-ghost">
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                                <span id="copy-btn-label">Copier l'image</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+        </div>
+    </main>
+
+    <!-- PIED DE PAGE TACTILE -->
     <footer class="site-footer">
-        <div class="privacy-badge">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-            Ce site fonctionne sans cookies et aucune donnée saisie ne quitte votre ordinateur.
-        </div>
-        <div>
-            &copy; 2026 Thomas Marchand — Tous droits réservés.
-        </div>
-        <div style="margin-top: 10px;">
-            <button type="button" id="btn-open-legal" class="footer-link-btn">Mentions légales &amp; Confidentialité (100% Local)</button>
+        <div class="footer-card">
+            <div class="footer-left">
+                <span class="privacy-dot" aria-hidden="true"></span>
+                <span class="privacy-text">Ce site fonctionne sans cookies et aucune donnée saisie ne quitte votre ordinateur.</span>
+                <span class="footer-sep" aria-hidden="true">|</span>
+                <span class="copyright">&copy; 2026 Thomas Marchand</span>
+            </div>
+            <button type="button" id="btn-open-legal" class="footer-link-btn">
+                Mentions légales &amp; Confidentialité (100% Local)
+            </button>
         </div>
     </footer>
 
+    <!-- MODALE MENTIONS LÉGALES & CONFIDENTIALITÉ -->
     <dialog id="legal-modal" class="legal-modal" closedby="any" aria-labelledby="legal-modal-title">
         <div class="legal-modal-header">
-            <h2 id="legal-modal-title">Mentions légales &amp; Confidentialité</h2>
+            <div class="legal-modal-title-group">
+                <div class="legal-modal-badge" aria-hidden="true">QR</div>
+                <div>
+                    <h2 id="legal-modal-title">Mentions légales &amp; Confidentialité</h2>
+                    <p class="legal-modal-subtitle">Architecture 100% Locale • Zéro Collecte • RGPD &amp; LCEN</p>
+                </div>
+            </div>
             <form method="dialog">
                 <button type="submit" class="legal-modal-close" aria-label="Fermer la fenêtre" autofocus>&times;</button>
             </form>
