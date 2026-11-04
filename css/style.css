@@ -1,3 +1,60 @@
+/* === POLICES EMBARQUÉES 100% LOCALES (ESPRIT PENL.IMG) === */
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('../fonts/inter-latin-400-normal-C38fXH4l.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url('../fonts/inter-latin-600-normal-LgqL8muc.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('../fonts/inter-latin-700-normal-Yt3aPRUw.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('../fonts/plus-jakarta-sans-latin-700-normal-CfpNZvy6.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    font-style: normal;
+    font-weight: 800;
+    font-display: swap;
+    src: url('../fonts/plus-jakarta-sans-latin-800-normal-CusIZhrK.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('../fonts/jetbrains-mono-latin-400-normal-V6pRDFza.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url('../fonts/jetbrains-mono-latin-600-normal-C8RAYTDA.woff2') format('woff2');
+}
+
 /* === SYSTÈME DE DESIGN : ESPRIT PENL.IMG × PALETTE EDF === */
 :root {
     --bg-stone: #FAF8F5;
@@ -27,8 +84,9 @@
     --shadow-tactile: 0 2px 0 0 rgba(0, 26, 112, 0.08);
     --shadow-tactile-lg: 0 4px 0 0 rgba(0, 26, 112, 0.10), 0 12px 24px -4px rgba(0, 26, 112, 0.06);
 
-    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-display: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
 *, *::before, *::after {
@@ -112,9 +170,10 @@ body {
 }
 
 .brand-name {
-    font-size: 1.15rem;
+    font-family: var(--font-display);
+    font-size: 1.25rem;
     font-weight: 800;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
     color: var(--corp-navy);
     line-height: 1.1;
 }
